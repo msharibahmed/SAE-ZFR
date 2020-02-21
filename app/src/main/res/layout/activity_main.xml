@@ -36,6 +36,7 @@
             android:textSize="25dp"/>
     </LinearLayout>
     <Button
+        android:id="@+id/enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter"
