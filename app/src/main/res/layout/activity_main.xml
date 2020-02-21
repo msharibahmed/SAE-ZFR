@@ -41,5 +41,6 @@
         android:text="Enter"
         android:textSize="20dp"
         android:background="#00C853"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_margin="2dp"/>
 </RelativeLayout>
