@@ -27,7 +27,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ksldfjasdklfjasdlfkasjdfklasd"
+        android:text="Quantity"
         android:textSize="25dp"/>
      <TextView
             android:layout_width="match_parent"
