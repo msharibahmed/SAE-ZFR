@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class Department extends AppCompatActivity {
     ListView listView;
-    String[] mItem = {"item1", "item2", "item3", "item3", "item4", "item5"};
+    String[] mItem = {"item1", "item2", "item3", "item4", "item5","item6"};
 
 
     @Override
