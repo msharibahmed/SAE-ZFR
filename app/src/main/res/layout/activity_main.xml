@@ -42,9 +42,10 @@
         android:id="@+id/enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:text="Enter"
         android:textSize="20sp"
-        android:background="#00C853"
+        android:background="#D50000"
         android:onClick="button"
         android:layout_alignParentBottom="true"
         android:layout_margin="2dp"/>
