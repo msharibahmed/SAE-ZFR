@@ -18,6 +18,8 @@ public class Department extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department);
         listView = findViewById(R.id.listView);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Creating ADAPTER class
 
         MainAdapter adapter = new MainAdapter(this, mItem);
