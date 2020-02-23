@@ -9,16 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main2Activity"></activity>
-        <activity android:name=".Department" android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".Main2Activity"
+            android:parentActivityName=".NavActivity" />
+        <activity
+            android:label="Departments"
+            android:name=".Department"
+            android:parentActivityName=".NavActivity" />
+
+        <activity
+            android:name=".NavActivity"
+            android:label="Let's  Go  Z F R">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
     </application>
 
 </manifest>
