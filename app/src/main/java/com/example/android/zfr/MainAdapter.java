@@ -7,12 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
 class MainAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private  String[] mItem;
-
     public MainAdapter(Context c,String[] mItem){
         this.context=c;
         this.mItem=mItem;

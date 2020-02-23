@@ -9,14 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LastActivity"></activity>
         <activity
-            android:name=".Main2Activity"
+            android:name=".MiscellaneousActitvity"
             android:parentActivityName=".Department" />
         <activity
-            android:label="Departments"
+            android:name=".BrakesActivity"
+            android:parentActivityName=".Department" />
+        <activity
+            android:name=".PowerTrainActivity"
+            android:parentActivityName=".Department" />
+        <activity
+            android:name=".ElectronicsActivity"
+            android:parentActivityName=".Department" />
+        <activity
+            android:name=".ChassisActivity"
+            android:parentActivityName=".Department" />
+        <activity
+            android:name=".VehicleDynamicsActivity"
+            android:parentActivityName=".Department" />
+        <activity
             android:name=".Department"
+            android:label="Departments"
             android:parentActivityName=".NavActivity" />
-
         <activity
             android:name=".NavActivity"
             android:label="ZFR 2020">
@@ -25,7 +40,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
