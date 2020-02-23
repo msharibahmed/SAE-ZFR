@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Main2Activity"
-            android:parentActivityName=".NavActivity" />
+            android:parentActivityName=".Department" />
         <activity
             android:label="Departments"
             android:name=".Department"
@@ -19,7 +19,7 @@
 
         <activity
             android:name=".NavActivity"
-            android:label="Let's  Go  Z F R">
+            android:label="ZFR 2020">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

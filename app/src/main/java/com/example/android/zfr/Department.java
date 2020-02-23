@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class Department extends AppCompatActivity {
     ListView listView;
-    String[] mItem = {"item1", "item2", "item3", "item4", "item5","item6"};
+    String[] mItem = {"Vehicle Dynamics", "Chassis", "Power Train", "Brakes", "Electronics", "Miscellaneous"};
 
 
     @Override
@@ -20,15 +20,30 @@ public class Department extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Creating ADAPTER class
-
         MainAdapter adapter = new MainAdapter(this, mItem);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Department.this,Main2Activity.class);
-                intent.putExtra("word",mItem[position]);
-                startActivity(intent);
+                if (position == 0) {
+                    Intent intent = new Intent(Department.this, Main2Activity.class);
+                    startActivity(intent);
+                }
+                if (position == 1) {
+
+                }
+                if (position == 2) {
+
+                }
+                if (position == 3) {
+
+                }
+                if (position == 4) {
+
+                }
+                if (position == 5) {
+
+                }
             }
         });
     }
