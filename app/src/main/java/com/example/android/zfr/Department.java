@@ -26,31 +26,43 @@ public class Department extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
+                    //A//
+                    //sub department, vehicle dynamics//
                     Intent intent = new Intent(Department.this, VehicleDynamicsActivity.class);
                     startActivity(intent);
                 }
                 if (position == 1) {
-                    Intent intent = new Intent(Department.this, ChassisActivity.class);
+                    //B//
+                    //Sub department,chassis//
+                    Intent intent = new Intent(Department.this, Last2.class);
                     startActivity(intent);
 
                 }
                 if (position == 2) {
+                    //C//
+                    //Sub department,power train//
                     Intent intent = new Intent(Department.this, PowerTrainActivity.class);
                     startActivity(intent);
 
                 }
                 if (position == 3) {
-                    Intent intent = new Intent(Department.this, BrakesActivity.class);
+                    //D//
+                    //Sub department, brakes//
+                    Intent intent = new Intent(Department.this, Last2.class);
                     startActivity(intent);
 
                 }
                 if (position == 4) {
-                    Intent intent = new Intent(Department.this, ElectronicsActivity.class);
+                    //E//
+                    //sub department,electronics//
+                    Intent intent = new Intent(Department.this, Last2.class);
                     startActivity(intent);
 
                 }
                 if (position == 5) {
-                    Intent intent = new Intent(Department.this, MiscellaneousActitvity.class);
+                    //F//
+                    //sub department, miscellaneous//
+                    Intent intent = new Intent(Department.this, Last2.class);
                     startActivity(intent);
 
                 }

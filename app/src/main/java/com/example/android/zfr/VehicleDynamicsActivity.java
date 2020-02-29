@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class VehicleDynamicsActivity extends AppCompatActivity {
-    String[] mItemA = {"item1", "item2", "item3", "item4", "item5", "item6"};
+    String[] mItemA = {"Steering", "Suspension"};
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +24,12 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    Intent intent = new Intent(VehicleDynamicsActivity.this, Department.class);
+                    Intent intent = new Intent(VehicleDynamicsActivity.this, Last2.class);
                     startActivity(intent);
                 }
                 if (position == 1) {
-
-                }
-                if (position == 2) {
-
-                }
-                if (position == 3) {
-
-                }
-                if (position == 4) {
-
-                }
-                if (position == 5) {
-
+                    Intent intent = new Intent(VehicleDynamicsActivity.this, Last2.class);
+                    startActivity(intent);
                 }
             }
         });

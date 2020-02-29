@@ -9,24 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LastActivity"></activity>
-        <activity
-            android:name=".MiscellaneousActitvity"
-            android:parentActivityName=".Department" />
-        <activity
-            android:name=".BrakesActivity"
-            android:parentActivityName=".Department" />
+        <activity android:name=".Last2"></activity>
+        <activity android:name=".Dialog" />
         <activity
             android:name=".PowerTrainActivity"
-            android:parentActivityName=".Department" />
-        <activity
-            android:name=".ElectronicsActivity"
-            android:parentActivityName=".Department" />
-        <activity
-            android:name=".ChassisActivity"
+            android:label="Sub Power Train"
             android:parentActivityName=".Department" />
         <activity
             android:name=".VehicleDynamicsActivity"
+            android:label="Sub Vehicle Dynamics"
             android:parentActivityName=".Department" />
         <activity
             android:name=".Department"
