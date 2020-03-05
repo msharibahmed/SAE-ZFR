@@ -9,8 +9,90 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Last2"></activity>
-        <activity android:name=".Dialog" />
+        <activity
+            android:name=".InputActivity.PIntakeInputActivity"
+            android:parentActivityName=".ItemActivity.PtIntakeItemActivity"
+            android:label="Fill Details" />
+
+        <activity
+            android:name=".InputActivity.PDriveTrainInputActivity"
+            android:parentActivityName=".ItemActivity.PtDriveTrainItemActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.PCoolingInputActivity"
+            android:parentActivityName=".InputActivity.PCoolingInputActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.PExhaustInputActivity"
+            android:parentActivityName=".InputActivity.PExhaustInputActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.EInputActivity"
+            android:parentActivityName=".ItemActivity.ElectronicsItemActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.BInputActivity"
+            android:parentActivityName=".ItemActivity.BrakesItemActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.CInputActivity"
+            android:parentActivityName=".ItemActivity.ChassisItemActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.InputActivity"
+            android:label="Fill Details"
+            android:parentActivityName=".VehicleDynamicsActivity" />
+        <activity
+            android:name=".InputActivity.VSuspensionInputActivity"
+            android:parentActivityName=".ItemActivity.VdSuspensionItemActivity"
+            android:label="Fill Details" />
+        <activity
+            android:name=".InputActivity.MInputActivty"
+            android:parentActivityName=".ItemActivity.MiscellaneousItemActivity"
+            android:label="Fill Details" />
+
+
+        <activity
+            android:name=".ItemActivity.VdSuspensionItemActivity"
+            android:parentActivityName=".VehicleDynamicsActivity"
+            android:label="Suspension Item Data" />
+        <activity
+            android:name=".ItemActivity.PtIntakeItemActivity"
+            android:parentActivityName=".PowerTrainActivity"
+            android:label="Intake Item Data" />
+        <activity
+            android:name=".ItemActivity.PtDriveTrainItemActivity"
+            android:parentActivityName=".PowerTrainActivity"
+            android:label="Drive Train Item Data" />
+        <activity
+            android:name=".ItemActivity.PtCoolingItemActivity"
+            android:parentActivityName=".PowerTrainActivity"
+            android:label="Cooling Item Data" />
+        <activity
+            android:name=".ItemActivity.PtExhaustItemActivity"
+            android:parentActivityName=".PowerTrainActivity"
+            android:label="Exhaust Item Data" />
+        <activity
+            android:name=".ItemActivity.MiscellaneousItemActivity"
+            android:parentActivityName=".Department"
+            android:label="Miscellaneous Item Data" />
+        <activity
+            android:name=".ItemActivity.ElectronicsItemActivity"
+            android:parentActivityName=".Department"
+            android:label="Electronics Item Data" />
+        <activity
+            android:name=".ItemActivity.BrakesItemActivity"
+            android:parentActivityName=".Department"
+            android:label="Brakes Item Data" />
+        <activity
+            android:name=".ItemActivity.ChassisItemActivity"
+            android:parentActivityName=".Department"
+            android:label="Chassis Item Data" />
+
+        <activity
+            android:name=".ItemActivity.Last2"
+            android:parentActivityName=".VehicleDynamicsActivity"
+            android:label="Steering Item Data" />
         <activity
             android:name=".PowerTrainActivity"
             android:label="Sub Power Train"
@@ -25,7 +107,7 @@
             android:parentActivityName=".NavActivity" />
         <activity
             android:name=".NavActivity"
-            android:label="ZFR 2020">
+            android:label="Let's Go ZFR">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,38 +4,38 @@
         <item
             android:id="@+id/menu_departments"
             android:icon="@drawable/ic_menu_department"
-            android:title="Departments"></item>
+            android:title="Departments" />
         <item
             android:id="@+id/menu_management"
             android:icon="@drawable/ic_menu_management"
-            android:title="Management"></item>
+            android:title="Management" />
         <item
             android:id="@+id/menu_give_task"
             android:icon="@drawable/ic_menu_give_task"
-            android:title="Give Task"></item>
+            android:title="Give Task" />
         <item
             android:id="@+id/menu_tasks"
             android:icon="@drawable/ic_menu_tasks"
-            android:title="Tasks"></item>
+            android:title="Tasks" />
         <item
-            android:id="@+id/menu_others"
+            android:id="@+id/menu_log_out"
             android:icon="@drawable/ic_menu_others"
-            android:title="Others"></item>
+            android:title="Log Out" />
         <item
             android:id="@+id/menu_total_cost"
             android:icon="@drawable/ic_menu_total_cost"
-            android:title="Total Cost : "></item>
+            android:title="Total Cost : " />
     </group>
     <item android:title="communicate">
         <menu>
             <item
                 android:id="@+id/menu_share_app"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share App"></item>
+                android:title="Share App" />
             <item
                 android:id="@+id/menu_about_us"
                 android:icon="@drawable/ic_menu_about_us"
-                android:title="About Us "></item>
+                android:title="About Us " />
         </menu>
     </item>
 

@@ -2,11 +2,17 @@ package com.example.android.zfr;
 
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.android.zfr.ItemActivity.Last2;
+import com.example.android.zfr.ItemActivity.VdSuspensionItemActivity;
 
 public class VehicleDynamicsActivity extends AppCompatActivity {
     String[] mItemA = {"Steering", "Suspension"};
@@ -29,10 +35,26 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (position == 1) {
-                    Intent intent = new Intent(VehicleDynamicsActivity.this, Last2.class);
+                    Intent intent = new Intent(VehicleDynamicsActivity.this, VdSuspensionItemActivity.class);
                     startActivity(intent);
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_button, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.home_button) {
+            Intent intent = new Intent(this, NavActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
