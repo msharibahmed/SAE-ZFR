@@ -27,6 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.Locale;
+import java.util.Objects;
 
 public class InputActivity extends AppCompatActivity {
     private EditText nameofitem, boughtby, boughtfrom, costofoneitem;
@@ -69,7 +71,6 @@ public class InputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveToFirebase();
-
             }
         });
         canceltransaction.setOnClickListener(new View.OnClickListener() {
@@ -85,15 +86,15 @@ public class InputActivity extends AppCompatActivity {
                 if (costofoneitem.getText().toString().isEmpty()) {
                     costofoneitem.setText("0");
                     numberofitems++;
-                    number_of_items_text.setText(Integer.toString(numberofitems));
+                    number_of_items_text.setText(String.format(Locale.US, "%d", numberofitems));
                     totalcost = totalcost * ((Integer.parseInt(costofoneitem.getText().toString())) * numberofitems);
-                    total_cost_text.setText(Integer.toString(totalcost));
+                    total_cost_text.setText(String.format(Locale.US, "%d", totalcost));
                     totalcost = 1;
                 } else {
                     numberofitems++;
-                    number_of_items_text.setText(Integer.toString(numberofitems));
+                    number_of_items_text.setText(String.format(Locale.US, "%d", numberofitems));
                     totalcost = totalcost * ((Integer.parseInt(costofoneitem.getText().toString())) * numberofitems);
-                    total_cost_text.setText(Integer.toString(totalcost));
+                    total_cost_text.setText(String.format(Locale.US, "%d", totalcost));
                     totalcost = 1;
                 }
             }
@@ -106,15 +107,15 @@ public class InputActivity extends AppCompatActivity {
                 } else if (costofoneitem.getText().toString().isEmpty()) {
                     costofoneitem.setText("0");
                     numberofitems--;
-                    number_of_items_text.setText(Integer.toString(numberofitems));
+                    number_of_items_text.setText(String.format(Locale.US, "%d", numberofitems));
                     totalcost = totalcost * ((Integer.parseInt(costofoneitem.getText().toString())) * numberofitems);
-                    total_cost_text.setText(Integer.toString(totalcost));
+                    total_cost_text.setText(String.format(Locale.US, "%d", totalcost));
                     totalcost = 1;
                 } else {
                     numberofitems--;
-                    number_of_items_text.setText(Integer.toString(numberofitems));
+                    number_of_items_text.setText(String.format(Locale.US, "%d", numberofitems));
                     totalcost = totalcost * ((Integer.parseInt(costofoneitem.getText().toString())) * numberofitems);
-                    total_cost_text.setText(Integer.toString(totalcost));
+                    total_cost_text.setText(String.format(Locale.US, "%d", totalcost));
                     totalcost = 1;
                 }
             }
@@ -125,12 +126,12 @@ public class InputActivity extends AppCompatActivity {
                 if (costofoneitem.getText().toString().isEmpty()) {
                     costofoneitem.setText("0");
                     totalcost = totalcost * ((Integer.parseInt(costofoneitem.getText().toString())) * numberofitems);
-                    total_cost_text.setText(Integer.toString(totalcost));
+                    total_cost_text.setText(String.format(Locale.US, "%d", totalcost));
                     totalcost = 1;
                 }
 
                 totalcost = totalcost * ((Integer.parseInt(costofoneitem.getText().toString())) * numberofitems);
-                total_cost_text.setText(Integer.toString(totalcost));
+                total_cost_text.setText(String.format(Locale.US, "%d", totalcost));
                 totalcost = 1;
             }
         });
@@ -145,7 +146,7 @@ public class InputActivity extends AppCompatActivity {
 
                 DatePickerDialog dialog = new DatePickerDialog(InputActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener, year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -168,7 +169,7 @@ public class InputActivity extends AppCompatActivity {
 
                 TimePickerDialog dialog = new TimePickerDialog(InputActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mTimeSetListener, hour, minute, true);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
 
             }
@@ -193,8 +194,10 @@ public class InputActivity extends AppCompatActivity {
         String totalcoststring = total_cost_text.getText().toString();
         String numberofitemstring = number_of_items_text.getText().toString();
 
-        if (!TextUtils.isEmpty(nameofitemstring) && !TextUtils.isEmpty(datestring) && !TextUtils.isEmpty(timestring) && !TextUtils.isEmpty(boughtbystring)
-                && !TextUtils.isEmpty(boughtfromstring) && !TextUtils.isEmpty(costofoneitemstring) && !TextUtils.isEmpty(totalcoststring) && !TextUtils.isEmpty(numberofitemstring)) {
+        if (!TextUtils.isEmpty(nameofitemstring) &&
+                !TextUtils.isEmpty(datestring) && !TextUtils.isEmpty(timestring) && !TextUtils.isEmpty(boughtbystring) &&
+                !TextUtils.isEmpty(boughtfromstring) && !TextUtils.isEmpty(costofoneitemstring) &&
+                !TextUtils.isEmpty(totalcoststring) && !TextUtils.isEmpty(numberofitemstring)) {
             Transaction transaction = new Transaction(nameofitemstring, boughtbystring, boughtfromstring, costofoneitemstring, datestring, timestring,
                     totalcoststring, numberofitemstring);
             transactionDb.push().setValue(transaction).addOnSuccessListener(new OnSuccessListener<Void>() {

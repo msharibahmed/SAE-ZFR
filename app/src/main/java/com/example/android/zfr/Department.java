@@ -13,19 +13,22 @@ import com.example.android.zfr.ItemActivity.ChassisItemActivity;
 import com.example.android.zfr.ItemActivity.ElectronicsItemActivity;
 import com.example.android.zfr.ItemActivity.MiscellaneousItemActivity;
 
+import java.util.Objects;
+
 public class Department extends AppCompatActivity {
     ListView listView;
     String[] mItem = {"Vehicle Dynamics", "Chassis", "Power Train", "Brakes", "Electronics", "Miscellaneous"};
+    int[] mImage = {R.drawable.vehicledynamics, R.drawable.chassis, R.drawable.powertrain, R.drawable.brakes, R.drawable.electronics, R.drawable.miscellaneous};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department);
         listView = findViewById(R.id.listView);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         //Creating ADAPTER class
-        MainAdapter adapter = new MainAdapter(this, mItem);
+        MainAdapter adapter = new MainAdapter(this, mItem, mImage);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

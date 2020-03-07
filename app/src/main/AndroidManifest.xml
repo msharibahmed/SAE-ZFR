@@ -107,7 +107,7 @@
             android:parentActivityName=".NavActivity" />
         <activity
             android:name=".NavActivity"
-            android:label="Let's Go ZFR">
+            android:label="Let's Go ZFR ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

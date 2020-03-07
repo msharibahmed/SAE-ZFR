@@ -2,4 +2,23 @@
     <string name="app_name">ZFR</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="name_of_item">Name Of Item</string>
+    <string name="bought_by">Bought By</string>
+    <string name="bought_from">Bought From</string>
+    <string name="select_date"> Select Date </string>
+    <string name="select_time"> Select Time </string>
+    <string name="date">23/11/24</string>
+    <string name="time">12:33</string>
+    <string name="cost_of_item">Cost Of One Item</string>
+    <string name="rs">Rs :   </string>
+    <string name="enter_cost">Enter Cost</string>
+    <string name="count">   0 </string>
+    <string name="number">Number</string>
+    <string name="refresh">Refresh</string>
+    <string name="total_cost">Total Cost</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="helmet_icon">Helmet Icon</string>
+
+
 </resources>

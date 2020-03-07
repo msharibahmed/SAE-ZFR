@@ -5,15 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 class MainAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private  String[] mItem;
-    public MainAdapter(Context c,String[] mItem){
+    private int[] mImage;
+
+    public MainAdapter(Context c, String[] mItem, int[] mImage) {
         this.context=c;
         this.mItem=mItem;
+        this.mImage = mImage;
 
     }
 
@@ -38,11 +43,13 @@ class MainAdapter extends BaseAdapter {
             inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
         if(convertView==null){
-            convertView= inflater.inflate(R.layout.row,null);
+            convertView = inflater.inflate(R.layout.row, null);
         }
 
         TextView itemName=convertView.findViewById(R.id.item_name);
         itemName.setText(mItem[position]);
+        ImageView imageView = convertView.findViewById(R.id.d_image);
+        imageView.setImageResource(mImage[position]);
 
         return convertView ;
     }
