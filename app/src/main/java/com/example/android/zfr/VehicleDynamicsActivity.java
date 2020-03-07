@@ -23,15 +23,16 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
     String[] mCostA = {Last2.sumofsteeringcostvalue, VdSuspensionItemActivity.sumofsuspensioncostvalue};
     String[] mCountA = {Last2.sumofsteeringcountvalue, VdSuspensionItemActivity.sumofsuspensioncountvalue};
     ListView listView;
-    TextView vsteeringcost, vsteeringcounts;
+    public static String sumofvehicledynamicscostvalue;
+    public static int sumofvehicledynamicscost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicledynamics);
         listView = findViewById(R.id.listView);
-        vsteeringcost = findViewById(R.id.cost);
-        vsteeringcounts = findViewById(R.id.counts);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        sumofvehicledynamicscost = Last2.sumofsteeringcost + VdSuspensionItemActivity.sumofsuspensioncost;
+        sumofvehicledynamicscostvalue = String.valueOf(sumofvehicledynamicscost);
 
         //Creating ADAPTER class
         MainAdapterA adapterA = new MainAdapterA(this, mItemA, mImageA, mCostA, mCountA);

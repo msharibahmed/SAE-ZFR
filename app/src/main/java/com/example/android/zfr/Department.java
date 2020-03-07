@@ -18,7 +18,11 @@ import java.util.Objects;
 public class Department extends AppCompatActivity {
     ListView listView;
     String[] mItem = {"Vehicle Dynamics", "Chassis", "Power Train", "Brakes", "Electronics", "Miscellaneous"};
-    int[] mImage = {R.drawable.vehicledynamics, R.drawable.chassis, R.drawable.powertrain, R.drawable.brakes, R.drawable.electronics, R.drawable.miscellaneous};
+    int[] mImage = {R.drawable.vehicledynamics, R.drawable.chassis, R.drawable.powertrain, R.drawable.brakes,
+            R.drawable.electronics, R.drawable.miscellaneous};
+    String[] mCost = {VehicleDynamicsActivity.sumofvehicledynamicscostvalue, ChassisItemActivity.sumofchassiscostvalue,
+            PowerTrainActivity.sumofpowertraincostvalue, BrakesItemActivity.sumofbrakescostvalue,
+            ElectronicsItemActivity.sumofelectronicscostvalue, MiscellaneousItemActivity.sumofmiscellaneouscostvalue};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class Department extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         //Creating ADAPTER class
-        MainAdapter adapter = new MainAdapter(this, mItem, mImage);
+        MainAdapter adapter = new MainAdapter(this, mItem, mImage, mCost);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

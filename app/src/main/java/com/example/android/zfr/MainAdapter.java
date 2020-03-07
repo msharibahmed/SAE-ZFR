@@ -14,11 +14,13 @@ class MainAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private  String[] mItem;
     private int[] mImage;
+    private String[] mCost;
 
-    public MainAdapter(Context c, String[] mItem, int[] mImage) {
+    public MainAdapter(Context c, String[] mItem, int[] mImage, String[] mCost) {
         this.context=c;
         this.mItem=mItem;
         this.mImage = mImage;
+        this.mCost = mCost;
 
     }
 
@@ -50,6 +52,8 @@ class MainAdapter extends BaseAdapter {
         itemName.setText(mItem[position]);
         ImageView imageView = convertView.findViewById(R.id.d_image);
         imageView.setImageResource(mImage[position]);
+        TextView cost1 = convertView.findViewById(R.id.cost_value);
+        cost1.setText(mCost[position]);
 
         return convertView ;
     }
