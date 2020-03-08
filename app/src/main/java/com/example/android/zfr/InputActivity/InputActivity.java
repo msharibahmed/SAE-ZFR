@@ -203,9 +203,8 @@ public class InputActivity extends AppCompatActivity {
             transactionDb.push().setValue(transaction).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(InputActivity.this, "Item Data Added", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(InputActivity.this, Last2.class);
-                    startActivity(intent);
+                    Toast.makeText(InputActivity.this, " Item Data Added ", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

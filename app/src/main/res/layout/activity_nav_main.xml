@@ -12,6 +12,33 @@
         android:background="#000"
         android:orientation="vertical">
 
+        <ViewFlipper
+            android:paddingBottom="230dp"
+            android:id="@+id/flipper_layout"
+            android:layout_width="match_parent"
+            android:inAnimation="@android:anim/slide_in_left"
+            android:outAnimation="@android:anim/slide_out_right"
+            android:autoStart="true"
+            android:flipInterval="1000"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/im1" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/im3" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/im4" />
+
+        </ViewFlipper>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
