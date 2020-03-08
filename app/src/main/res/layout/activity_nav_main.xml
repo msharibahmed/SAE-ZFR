@@ -113,6 +113,7 @@
         app:itemHorizontalPadding="15dp"
         android:fitsSystemWindows="true"
         app:itemTextColor="#000"
+        android:theme="@style/NavigationDrawerStyle"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/nav_menu">
 

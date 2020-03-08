@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.android.zfr.ItemActivity.Last2;
 import com.example.android.zfr.Model.Transaction;
 import com.example.android.zfr.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -76,8 +74,7 @@ public class InputActivity extends AppCompatActivity {
         canceltransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InputActivity.this, Last2.class);
-                startActivity(intent);
+                finish();
             }
         });
         additem.setOnClickListener(new View.OnClickListener() {
