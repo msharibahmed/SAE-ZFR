@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:background="#000"
     android:layout_width="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,18 +14,18 @@
         android:orientation="vertical">
 
         <ViewFlipper
-            android:paddingBottom="230dp"
             android:id="@+id/flipper_layout"
-            android:layout_width="match_parent"
+            android:layout_width="435dp"
+            android:layout_height="374dp"
+            android:autoStart="true"
+            android:flipInterval="2000"
             android:inAnimation="@android:anim/slide_in_left"
             android:outAnimation="@android:anim/slide_out_right"
-            android:autoStart="true"
-            android:flipInterval="1000"
-            android:layout_height="wrap_content">
+            android:paddingBottom="230dp">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="241dp"
                 android:src="@drawable/im1" />
 
             <ImageView
@@ -42,10 +43,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textSize="40sp"
             android:gravity="center_horizontal"
-            android:text="Total Cost" />
+            android:text="Total Cost"
+            android:textColor="#fff"
+            android:textSize="40sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

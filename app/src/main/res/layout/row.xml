@@ -10,14 +10,14 @@
     <ImageView
 
         android:id="@+id/d_image"
-        android:layout_width="69dp"
+        android:layout_width="58dp"
         android:layout_height="match_parent"
-        android:src="@drawable/edit"
-        android:contentDescription="@string/helmet_icon" />
+        android:contentDescription="@string/helmet_icon"
+        android:src="@drawable/edit" />
 
     <TextView
         android:id="@+id/item_name"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="108dp"
         android:gravity="center"
         android:text="NAME"
@@ -41,13 +41,13 @@
             android:text="COST  " />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/rs"
                 android:textColor="#000"
