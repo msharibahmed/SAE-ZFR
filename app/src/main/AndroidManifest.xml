@@ -13,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="donut">
-        <activity android:name=".SignInActivity"></activity>
-        <activity android:name=".LogInActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity
+            android:name=".LogInActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".InputActivity.PIntakeInputActivity"
             android:label="Fill Details"

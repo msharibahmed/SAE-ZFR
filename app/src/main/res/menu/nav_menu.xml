@@ -5,10 +5,7 @@
             android:id="@+id/menu_departments"
             android:icon="@drawable/ic_menu_department"
             android:title="Departments" />
-        <item
-            android:id="@+id/menu_management"
-            android:icon="@drawable/ic_menu_management"
-            android:title="Management" />
+
         <item
             android:id="@+id/menu_give_task"
             android:icon="@drawable/ic_menu_give_task"
@@ -21,10 +18,7 @@
             android:id="@+id/menu_log_out"
             android:icon="@drawable/ic_menu_others"
             android:title="Log Out" />
-        <item
-            android:id="@+id/menu_total_cost"
-            android:icon="@drawable/ic_menu_total_cost"
-            android:title="Total Cost : " />
+
     </group>
     <item android:title="communicate">
         <menu>
@@ -36,6 +30,10 @@
                 android:id="@+id/menu_about_us"
                 android:icon="@drawable/ic_menu_about_us"
                 android:title="About Us " />
+            <item
+                android:id="@+id/menu_contact_developer"
+                android:icon="@drawable/ic_menu_contact_developer"
+                android:title="Conatact Developer " />
         </menu>
     </item>
 

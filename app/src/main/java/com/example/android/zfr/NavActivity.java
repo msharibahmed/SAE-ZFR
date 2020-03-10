@@ -1,6 +1,8 @@
 package com.example.android.zfr;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,14 +33,13 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
     String totalcostvaluetonav;
     private FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
+    NavigationView navview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_main);
         nav_total_cost = findViewById(R.id.nav_totalcost);
-        givetask = findViewById(R.id.menu_give_task);
-        task = findViewById(R.id.menu_tasks);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -81,6 +82,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
 
+    @SuppressLint("IntentReset")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
@@ -88,14 +90,21 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
             Intent intent = new Intent(this, Department.class);
             startActivity(intent);
         }
-        if (id == R.id.menu_management) {
 
-        }
         if (id == R.id.menu_give_task) {
-
 
         }
         if (id == R.id.menu_tasks) {
+
+        }
+        if (id == R.id.menu_contact_developer) {
+
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:msharibahmed@gmail.com"));
+
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
 
         }
         if (id == R.id.menu_log_out) {
