@@ -7,33 +7,49 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.example.android.zfr.InputActivity.InputActivity;
+import com.example.android.zfr.InputActivity.PCoolingInputActivity;
+import com.example.android.zfr.InputActivity.PDriveTrainInputActivity;
+import com.example.android.zfr.InputActivity.PIntakeInputActivity;
+import com.example.android.zfr.InputActivity.VSuspensionInputActivity;
 import com.example.android.zfr.ItemActivity.BrakesItemActivity;
 import com.example.android.zfr.ItemActivity.ChassisItemActivity;
 import com.example.android.zfr.ItemActivity.ElectronicsItemActivity;
 import com.example.android.zfr.ItemActivity.MiscellaneousItemActivity;
+import com.example.android.zfr.ItemActivity.PtCoolingItemActivity;
+import com.example.android.zfr.ItemActivity.PtExhaustItemActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class NavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private TextView nav_total_cost;
-    private MenuItem givetask, task;
     float totalcosttonav;
     String totalcostvaluetonav;
     private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference nDb;
     FirebaseAuth.AuthStateListener mAuthListener;
-    NavigationView navview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +58,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         nav_total_cost = findViewById(R.id.nav_totalcost);
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -57,10 +74,20 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         };
 
 
-        totalcosttonav = BrakesItemActivity.sumofbrakescost + ChassisItemActivity.sumofchassiscost + ElectronicsItemActivity.sumofelectronicscost +
-                MiscellaneousItemActivity.sumofmiscellaneouscost + VehicleDynamicsActivity.sumofvehicledynamicscost + PowerTrainActivity.sumofpowertraincost;
-        totalcostvaluetonav = String.valueOf(totalcosttonav);
-        nav_total_cost.setText(totalcostvaluetonav);
+        nDb = database.getReference().child("Navigation Activity").child("Cost");
+        nDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String cost = dataSnapshot.getValue(String.class);
+                nav_total_cost.setText(String.valueOf(cost));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);

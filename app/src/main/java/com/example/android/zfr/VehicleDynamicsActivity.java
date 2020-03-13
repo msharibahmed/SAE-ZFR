@@ -14,29 +14,119 @@ import android.widget.TextView;
 
 import com.example.android.zfr.ItemActivity.Last2;
 import com.example.android.zfr.ItemActivity.VdSuspensionItemActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class VehicleDynamicsActivity extends AppCompatActivity {
     String[] mItemA = {"Steering", "Suspension"};
     int[] mImageA = {R.drawable.steering, R.drawable.suspension};
-    String[] mCostA = {Last2.sumofsteeringcostvalue, VdSuspensionItemActivity.sumofsuspensioncostvalue};
-    String[] mCountA = {Last2.sumofsteeringcountvalue, VdSuspensionItemActivity.sumofsuspensioncountvalue};
+    String[] mCountA = new String[2];
+    String[] mCostA = new String[2];
+    int sumofvdcost = 0;
+    String sumofvdcostvalue;
+
+    private DatabaseReference suspensionDbcost, steeringDbcost, suspensionDbcount, steeringDbcount, vdDb, dvdDb;
+    private FirebaseDatabase database;
     ListView listView;
-    public static String sumofvehicledynamicscostvalue;
-    public static int sumofvehicledynamicscost;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicledynamics);
         listView = findViewById(R.id.listView);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        sumofvehicledynamicscost = Last2.sumofsteeringcost + VdSuspensionItemActivity.sumofsuspensioncost;
-        sumofvehicledynamicscostvalue = String.valueOf(sumofvehicledynamicscost);
+        database = FirebaseDatabase.getInstance();
 
-        //Creating ADAPTER class
-        MainAdapterA adapterA = new MainAdapterA(this, mItemA, mImageA, mCostA, mCountA);
-        listView.setAdapter(adapterA);
+        dvdDb = database.getReference().child("Department").child("Vehicle Dynamics").child("Cost");
+        vdDb = database.getReference().child("Sub Department").child("Vehicle Dynamics");
+        steeringDbcost = database.getReference().child("Sub Department").child("Vehicle Dynamics").child("Steering").child("Cost");
+        suspensionDbcost = database.getReference().child("Sub Department").child("Vehicle Dynamics").child("Suspension").child("Cost");
+        steeringDbcount = database.getReference().child("Sub Department").child("Vehicle Dynamics").child("Steering").child("Count");
+        suspensionDbcount = database.getReference().child("Sub Department").child("Vehicle Dynamics").child("Suspension").child("Count");
+
+        steeringDbcost.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String cost = dataSnapshot.getValue(String.class);
+                mCostA[0] = String.valueOf(cost);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        steeringDbcount.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String count = dataSnapshot.getValue(String.class);
+                mCountA[0] = String.valueOf(count);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        suspensionDbcost.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String cost = dataSnapshot.getValue(String.class);
+                mCostA[1] = String.valueOf(cost);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        suspensionDbcount.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String count = dataSnapshot.getValue(String.class);
+                mCountA[1] = String.valueOf(count);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        vdDb.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                    Object totalcost = map.get("Cost");
+                    int totalcostvalue = Integer.parseInt(String.valueOf(totalcost));
+                    sumofvdcost += totalcostvalue;
+                    sumofvdcostvalue = String.valueOf(sumofvdcost);
+                }
+                dvdDb.setValue(sumofvdcostvalue);
+                //Creating ADAPTER class
+                MainAdapterA adapterA = new MainAdapterA(VehicleDynamicsActivity.this, mItemA, mImageA, mCostA, mCountA);
+                listView.setAdapter(adapterA);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+
+
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,6 +143,7 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
