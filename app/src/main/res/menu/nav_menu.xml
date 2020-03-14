@@ -8,7 +8,7 @@
 
         <item
             android:id="@+id/menu_give_task"
-            android:icon="@drawable/ic_menu_give_task"
+            android:icon="@drawable/ic_menu_givetask"
             android:title="Give Task" />
         <item
             android:id="@+id/menu_tasks"
@@ -16,7 +16,7 @@
             android:title="Tasks" />
         <item
             android:id="@+id/menu_log_out"
-            android:icon="@drawable/ic_menu_others"
+            android:icon="@drawable/ic_menu_logout"
             android:title="Log Out" />
 
     </group>
@@ -29,11 +29,16 @@
             <item
                 android:id="@+id/menu_about_us"
                 android:icon="@drawable/ic_menu_about_us"
+                android:iconTint="@color/colorAccent"
                 android:title="About Us " />
             <item
                 android:id="@+id/menu_contact_developer"
                 android:icon="@drawable/ic_menu_contact_developer"
-                android:title="Conatact Developer " />
+                android:title="Contact Developer " />
+            <item
+                android:id="@+id/menu_privacy_policy"
+                android:title="Privacy Policy" />
+
         </menu>
     </item>
 

@@ -21,96 +21,108 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".InputActivity.PIntakeInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".ItemActivity.PtIntakeItemActivity" />
         <activity
             android:name=".InputActivity.PDriveTrainInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".ItemActivity.PtDriveTrainItemActivity" />
         <activity
             android:name=".InputActivity.PCoolingInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".InputActivity.PCoolingInputActivity" />
         <activity
             android:name=".InputActivity.PExhaustInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".InputActivity.PExhaustInputActivity" />
         <activity
             android:name=".InputActivity.EInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".ItemActivity.ElectronicsItemActivity" />
         <activity
             android:name=".InputActivity.BInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".ItemActivity.BrakesItemActivity" />
         <activity
             android:name=".InputActivity.CInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".ItemActivity.ChassisItemActivity" />
         <activity
             android:name=".InputActivity.InputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".VehicleDynamicsActivity" />
         <activity
             android:name=".InputActivity.VSuspensionInputActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Fill Details"
             android:parentActivityName=".ItemActivity.VdSuspensionItemActivity" />
         <activity
             android:name=".InputActivity.MInputActivty"
             android:label="Fill Details"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".ItemActivity.MiscellaneousItemActivity" />
         <activity
             android:name=".ItemActivity.VdSuspensionItemActivity"
             android:label="Suspension Item Data"
-            android:parentActivityName=".VehicleDynamicsActivity" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.PtIntakeItemActivity"
             android:label="Intake Item Data"
-            android:parentActivityName=".PowerTrainActivity" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.PtDriveTrainItemActivity"
             android:label="Drive Train Item Data"
-            android:parentActivityName=".PowerTrainActivity" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.PtCoolingItemActivity"
             android:label="Cooling Item Data"
-            android:parentActivityName=".PowerTrainActivity" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.PtExhaustItemActivity"
             android:label="Exhaust Item Data"
-            android:parentActivityName=".PowerTrainActivity" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.MiscellaneousItemActivity"
             android:label="Miscellaneous Item Data"
-            android:parentActivityName=".Department" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.ElectronicsItemActivity"
             android:label="Electronics Item Data"
-            android:parentActivityName=".Department" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.BrakesItemActivity"
             android:label="Brakes Item Data"
-            android:parentActivityName=".Department" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.ChassisItemActivity"
             android:label="Chassis Item Data"
-            android:parentActivityName=".Department" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ItemActivity.Last2"
             android:label="Steering Item Data"
-            android:parentActivityName=".VehicleDynamicsActivity" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".PowerTrainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Sub Power Train"
             android:parentActivityName=".Department" />
         <activity
             android:name=".VehicleDynamicsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="Sub Vehicle Dynamics"
             android:parentActivityName=".Department" />
         <activity
             android:name=".Department"
             android:label="Departments"
-            android:parentActivityName=".NavActivity" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".NavActivity"
             android:label="Let&apos;s Go ZFR ">

@@ -5,18 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.android.zfr.ItemActivity.Last2;
+import com.example.android.zfr.ItemActivity.PtIntakeItemActivity;
 import com.example.android.zfr.Model.Transaction;
 import com.example.android.zfr.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,19 +35,24 @@ import java.util.Objects;
 
 public class InputActivity extends AppCompatActivity {
     private EditText nameofitem, boughtby, boughtfrom, costofoneitem;
-    private Button subitem, additem, addtransaction, canceltransaction, selectdate, selecttime;
-    private TextView date_text, time_text, total_cost_text, number_of_items_text;
+    private Button addtransaction, canceltransaction;
+    private TextView date_text, time_text, subitem, additem, total_cost_text, selectdate, selecttime, number_of_items_text;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
     private FirebaseDatabase database;
     private DatabaseReference transactionDb;
     int numberofitems = 0, totalcost = 1;
-    private Button refresh;
+    private TextView refresh;
+    ImageView inputback;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         nameofitem = findViewById(R.id.name_of_item);
         boughtby = findViewById(R.id.bought_by);
@@ -59,6 +69,15 @@ public class InputActivity extends AppCompatActivity {
         selectdate = findViewById(R.id.date_button);
         selecttime = findViewById(R.id.time_button);
         refresh = findViewById(R.id.refresh);
+        inputback = findViewById(R.id.input_back);
+        inputback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, Last2.class);
+                finish();
+                startActivity(intent);
+            }
+        });
 
 
         database = FirebaseDatabase.getInstance();

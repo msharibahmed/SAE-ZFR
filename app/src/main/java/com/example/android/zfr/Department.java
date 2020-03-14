@@ -2,11 +2,15 @@ package com.example.android.zfr;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.content.Intent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.android.zfr.ItemActivity.BrakesItemActivity;
@@ -29,6 +33,7 @@ public class Department extends AppCompatActivity {
             R.drawable.electronics, R.drawable.miscellaneous};
     String[] mCost = new String[6];
     int sumofdcost = 0;
+    private ImageView d_back_btn;
     String sumofdcostvalue;
     private DatabaseReference vdDbcost, cDbcost, ptDbcost, bDbcost, eDbcost, mDbcost, dDb, nDb;
     private FirebaseDatabase database;
@@ -37,8 +42,21 @@ public class Department extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department);
+
+        d_back_btn = findViewById(R.id.department_back_btn);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         listView = findViewById(R.id.listView);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        d_back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Department.this, NavActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
         database = FirebaseDatabase.getInstance();
         nDb = database.getReference().child("Navigation Activity").child("Cost");
         dDb = database.getReference().child("Department");

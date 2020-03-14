@@ -4,11 +4,15 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,6 +37,8 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
     String[] mCostA = new String[2];
     int sumofvdcost = 0;
     String sumofvdcostvalue;
+    private ImageView d_back_btn;
+
 
     private DatabaseReference suspensionDbcost, steeringDbcost, suspensionDbcount, steeringDbcount, vdDb, dvdDb;
     private FirebaseDatabase database;
@@ -41,10 +47,22 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehicledynamics);
+        setContentView(R.layout.activity_power_train);
+        d_back_btn = findViewById(R.id.department_back_btn);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         listView = findViewById(R.id.listView);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         database = FirebaseDatabase.getInstance();
+        d_back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VehicleDynamicsActivity.this, Department.class);
+                finish();
+                startActivity(intent);
+            }
+        });
 
         dvdDb = database.getReference().child("Department").child("Vehicle Dynamics").child("Cost");
         vdDb = database.getReference().child("Sub Department").child("Vehicle Dynamics");
@@ -140,24 +158,5 @@ public class VehicleDynamicsActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home_button, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.home_button) {
-            Intent intent = new Intent(this, NavActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

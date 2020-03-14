@@ -3,49 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    android:background="#000"
+    android:background="#fff"
     android:layout_width="match_parent">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:background="#000"
+        android:background="#fff"
         android:orientation="vertical">
 
-        <ViewFlipper
-            android:id="@+id/flipper_layout"
-            android:layout_width="435dp"
-            android:layout_height="374dp"
-            android:autoStart="true"
-            android:flipInterval="2000"
-            android:inAnimation="@android:anim/slide_in_left"
-            android:outAnimation="@android:anim/slide_out_right"
-            android:paddingBottom="230dp">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="241dp"
-                android:src="@drawable/im1" />
+                android:layout_height="550dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/chart" />
+        </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/im3" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/im4" />
-
-        </ViewFlipper>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Total Cost"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="40sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="Rs : "
                 android:layout_marginLeft="90dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="38sp" />
 
             <TextView
@@ -67,7 +52,7 @@
                 android:layout_width="171dp"
                 android:layout_height="wrap_content"
                 android:text="  0 "
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="38sp" />
 
         </LinearLayout>
@@ -110,12 +95,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@drawable/navigation_shape"
+        android:background="@drawable/navback"
         app:itemHorizontalPadding="15dp"
         android:fitsSystemWindows="true"
         app:itemTextColor="#000"
         android:theme="@style/NavigationDrawerStyle"
-        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/nav_menu">
 
     </com.google.android.material.navigation.NavigationView>

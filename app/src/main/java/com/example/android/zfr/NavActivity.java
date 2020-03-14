@@ -55,6 +55,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_main);
+
         nav_total_cost = findViewById(R.id.nav_totalcost);
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();

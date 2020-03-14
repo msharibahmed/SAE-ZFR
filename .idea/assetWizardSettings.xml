@@ -176,7 +176,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_contact_mail_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_navigate_before_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -187,7 +187,7 @@
                         <option name="values">
                           <map>
                             <entry key="opacityPercent" value="95" />
-                            <entry key="outputName" value="ic_menu_contact_developer" />
+                            <entry key="outputName" value="ic_back_input" />
                             <entry key="sourceFile" value="C:\Users\MSharib" />
                           </map>
                         </option>
