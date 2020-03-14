@@ -44,21 +44,21 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private TextView nav_total_cost;
-    float totalcosttonav;
-    String totalcostvaluetonav;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private DatabaseReference nDb;
     FirebaseAuth.AuthStateListener mAuthListener;
+    NavigationView navigationView;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_main);
         nav_total_cost = findViewById(R.id.nav_totalcost);
-
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -70,6 +70,8 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
                     Intent intent = new Intent(NavActivity.this, LogInActivity.class);
                     startActivity(intent);
                 }
+
+
             }
         };
 
@@ -167,5 +169,8 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+
+
     }
+
 }
